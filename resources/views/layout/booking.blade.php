@@ -9,6 +9,35 @@
     <title>ASASSAITA HOTEL</title>
 </head>
 <body>
+
+    @if(session('success'))
+        <div id="successModal" style="
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #4BB543;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 9999;
+            font-size: 18px;
+            display: none;
+        ">
+            {{ session('success') }}
+        </div>
+        <script>
+            window.onload = function() {
+                var modal = document.getElementById('successModal');
+                modal.style.display = 'block';
+                setTimeout(function() {
+                    modal.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+            }
+        </script>
+    @endif
+    
+
     @include('partials.nav')
     <header class=" home" id="home">
         <div class="section__container header__container">
@@ -54,7 +83,7 @@
           </div>
         </div>
           <div class="booking__card">
-            <form class="booking__form check-in" action="POST" method="post">
+            <form class="booking__form check-in" action="{{route('booking.store')}}" method="post">
               @csrf
              
                 <h2>Check-in Form</h2>
@@ -68,9 +97,8 @@
                 <label for="checkOut">Check-out Date:</label>
                 <input type="date" id="checkOut" name="checkOut" required>
             
-                <label for="checkOutTime">Check-out Time:</label>
-                <input type="time" id="checkOutTime" name="checkOutTime" required>
-
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
                 <label for="number">Room Type</label>
                 <select name="roomType" id="roomType" >
                   <option value="" disabled selected="Room Type"></option>
@@ -106,5 +134,6 @@
         </div>
       </section>
     @include('partials.footer')
+    
 </body>
 </html>

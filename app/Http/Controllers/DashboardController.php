@@ -10,8 +10,8 @@ class DashboardController extends Controller
     public function dashboard() {
         return view('admin.admin_dashboard');
     }
-    public function booking() {
-        return view('admin.components.booking');
+    public function bookings() {
+        return view('admin.components.bookings');
     }
     public function message() {
         return view('admin.components.message');

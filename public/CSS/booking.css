@@ -1,1 +1,60 @@
 @import url("dashboard.css");
+
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        thead tr {
+            background-color: #2d3e50;
+            color: #fff;
+            text-align: left;
+        }
+        th, td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        tbody tr {
+            transition: background 0.2s;
+        }
+        tbody tr:hover {
+            background-color: #f5f7fa;
+        }
+        th:first-child, td:first-child {
+            border-top-left-radius: 10px;
+        }
+        th:last-child, td:last-child {
+            border-top-right-radius: 10px;
+        }
+        /* Responsive */
+        @media (max-width: 800px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                display: none;
+            }
+            td {
+                position: relative;
+                padding-left: 50%;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+            td:before {
+                position: absolute;
+                left: 16px;
+                top: 14px;
+                white-space: nowrap;
+                font-weight: bold;
+                color: #2d3e50;
+                content: attr(data-label);
+            }
+    

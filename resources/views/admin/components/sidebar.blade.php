@@ -10,12 +10,11 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <a href="#" class="logo">
-                <i class='bx bx-code-alt'></i>
                 <div class="logo-name"><span>ASASSAITA</span></div>
             </a>
             <ul class="side-menu">
                 <li class="active"><a href="{{route('dashboard')}}"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-                <li ><a href="{{route('dashboard.booking')}}"><i class='bx bx-store-alt'></i>Booking</a></li>
+                <li ><a href="{{route('booking.index')}}"><i class='bx bx-store-alt'></i>Booking</a></li>
                 <li ><a href="{{route('dashboard.rooms')}}"><i class='bx bx-analyse'></i>Rooms</a></li>
                 <li><a href="{{route('dashboard.message')}}"><i class='bx bx-group'></i>Message</a></li>
                 <li><a href="{{route('dashboard.profile')}}"><i class='bx bx-group'></i>Profile</a></li>
