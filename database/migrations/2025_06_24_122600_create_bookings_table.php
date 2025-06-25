@@ -18,6 +18,8 @@ return new class extends Migration
             $table->date('checkOut');
             $table->string('roomType');
             $table->string('guest');
+            $table->unsignedBigInteger('room_id')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+     
         Schema::dropIfExists('bookings');
     }
 };

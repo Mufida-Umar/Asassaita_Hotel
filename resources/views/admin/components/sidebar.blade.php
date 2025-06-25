@@ -10,15 +10,30 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <a href="#" class="logo">
-                <div class="logo-name"><span>ASASSAITA</span></div>
+
+                <div class="logo-name">
+            <i class='bx bxs-hotel'></i>
+                    <span>ASASSAITA</span></div>
             </a>
             <ul class="side-menu">
-                <li class="active"><a href="{{route('dashboard')}}"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-                <li ><a href="{{route('booking.index')}}"><i class='bx bx-store-alt'></i>Booking</a></li>
-                <li ><a href="{{route('dashboard.rooms')}}"><i class='bx bx-analyse'></i>Rooms</a></li>
-                <li><a href="{{route('dashboard.message')}}"><i class='bx bx-group'></i>Message</a></li>
-                <li><a href="{{route('dashboard.profile')}}"><i class='bx bx-group'></i>Profile</a></li>
-                <li><a href="{{route('dashboard.setting')}}"><i class='bx bx-cog'></i>Settings</a></li>
+                <li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('admin.dashboard') }}"><i class='bx bxs-dashboard'></i>Dashboard</a>
+                </li>
+                <li class="{{ request()->routeIs('booking.index') ? 'active' : '' }}">
+                    <a href="{{ route('booking.index') }}"><i class='bx bx-store-alt'></i>Booking</a>
+                </li>
+                <li class="{{ request()->routeIs('rooms.index') ? 'active' : '' }}">
+                    <a href="{{ route('rooms.index') }}"><i class='bx bx-analyse'></i>Rooms</a>
+                </li>
+                <li class="{{ request()->routeIs('dashboard.messages') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.messages') }}"><i class='bx bx-group'></i>Message</a>
+                </li>
+                <li class="{{ request()->routeIs('dashboard.profile') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.profile') }}"><i class='bx bx-group'></i>Profile</a>
+                </li>
+                <li class="{{ request()->routeIs('dashboard.setting') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.setting') }}"><i class='bx bx-cog'></i>Settings</a>
+                </li>
             </ul>
             <ul class="side-menu">
                 <li>

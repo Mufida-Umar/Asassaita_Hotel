@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/admin/dashboard.css')}}">
 
     <title>Admin Dashboard</title>
 </head>
@@ -27,129 +27,78 @@
                         <li><a href="#">
                                 Analytics
                             </a></li>
-                        /
-                        <li><a href="#" class="active">Shop</a></li>
                     </ul>
                 </div>
-                <a href="#" class="report">
-                    <i class='bx bx-cloud-download'></i>
-                    <span>Download CSV</span>
-                </a>
-            </div>            <!-- Insights -->
-            <ul class="insights">
-                <li>
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="info">
-                        <h3>
-                            1,074
-                        </h3>
-                        <p>Paid Order</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-show-alt'></i>
-                    <span class="info">
-                        <h3>
-                            3,944
-                        </h3>
-                        <p>Site Visit</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-line-chart'></i>
-                    <span class="info">
-                        <h3>
-                            14,721
-                        </h3>
-                        <p>Searches</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-dollar-circle'></i>
-                    <span class="info">
-                        <h3>
-                            $6,742
-                        </h3>
-                        <p>Total Sales</p>
-                    </span>
-                </li>
-            </ul>
-            <!-- End of Insights -->
+                           </div>            
+
+                           <ul class="insights">
+                            <li><i class='bx bx-user'></i>
+                                <span class="info">
+                                    <h3>
+                                        {{ $bookings->count() }}
+                                    </h3>
+                                    <p>Reservations</p>
+                                </span>
+                            </li>
+                            <li><i class='bx bx-bed'></i>
+                                <span class="info">
+                                    <h3>
+                                        {{ $checkedIn->count() }}
+                                    </h3>
+                                    <p>Checked-In</p>
+                                </span>
+                            </li>
+                            <li>
+                                <i class='bx bx-door-open'></i>
+                                <span class="info">
+                                    <h3>
+                                        {{ $availableRooms->count() }}
+                                    </h3>
+                                    <p>Available Rooms</p>
+                                </span>
+                            </li>
+                            
+                          
+                        </ul>
+
 
             <div class="bottom-data">
                 <div class="orders">
                     <div class="header">
                         <i class='bx bx-receipt'></i>
-                        <h3>Recent Orders</h3>
+                        <h3>Checked-In</h3>
                         <i class='bx bx-filter'></i>
                         <i class='bx bx-search'></i>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Order Date</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status process">Processing</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Room</th>
+            <th>Check-Out Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($checkedIn as $booking)
+        <tr>
+            <td>{{ $booking->fullName }}</td>
+            <td>{{ $booking->assignedRoom->name ?? '-' }}</td>
+            <td>{{ $booking->checkOut }}</td>
+            <td><span class="status-active">Active</span></td>
+            <td>
+                <form action="{{ route('booking.checkout', $booking->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="checkout-btn">Check-Out</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>                </div>
 
                 <!-- Reminders -->
-                <div class="reminders">
-                    <div class="header">
-                        <i class='bx bx-note'></i>
-                        <h3>Remiders</h3>
-                        <i class='bx bx-filter'></i>
-                        <i class='bx bx-plus'></i>
-                    </div>
-                    <ul class="task-list">
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i>
-                                <p>Start Our Meeting</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i>
-                                <p>Analyse Our Site</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="not-completed">
-                            <div class="task-title">
-                                <i class='bx bx-x-circle'></i>
-                                <p>Play Footbal</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                    </ul>
-                </div>
 
                 <!-- End of Reminders-->
 

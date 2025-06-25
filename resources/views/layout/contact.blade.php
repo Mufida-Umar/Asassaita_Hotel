@@ -35,23 +35,19 @@
     <h2 class="contact-name">Contact Us Today </h2>
     <div class="contact-form">
 
-      <form class="contact-form-input" action="#" method="post">
-
-        <div class="form-group">
-         
-        </div>
+      <form class="contact-form-input" action="{{route('contact.send')}}" method="POST">
+        @csrf
         <div class="contact-form-group">
-          <input class="contact-page-input" type="text" name="first_name" placeholder="First name" required autocomplete="off" >
-          <input class="contact-page-input" type="text" name="surname" placeholder="Surname" required autocomplete="off" >
-          <input class="contact-page-input" type="email" name="email" placeholder="Email" required autocomplete="off" >
-          <input class="contact-page-input"  type="tel" name="phone-number" placeholder="Phone No." required autocomplete="off" >
+            <input class="contact-page-input" type="text" name="firstname" placeholder="First name" required autocomplete="off" >
+            <input class="contact-page-input" type="text" name="lastname" placeholder="Surname" required autocomplete="off" >
+            <input class="contact-page-input" type="email" name="email" placeholder="Email" required autocomplete="off" >
+            <input class="contact-page-input" type="tel" name="phone" placeholder="Phone No." required autocomplete="off" >
         </div>
-        <div class=" mgs contact-form-group">
-          <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <div class="mgs contact-form-group">
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
         </div>
-      </form>
-      <button class="btn" type="submit">Submit</button>
-    </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>    </div>
 
     <div class="contact-box">
       <a href="" class="box-container">+234122334455</a>

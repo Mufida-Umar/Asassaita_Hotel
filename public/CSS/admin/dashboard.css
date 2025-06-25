@@ -79,10 +79,17 @@ body {
     color: var(--primary);
     z-index: 500;
     padding-bottom: 20px;
-    padding-left: 20px;
+    padding-top: 20px;
     box-sizing: content-box;
 }
 
+.logo-name {
+    display: flex;
+    flex-direction: row;
+    color: var(--dark);
+    align-items: center;
+    justify-content: center;
+}
 .sidebar .logo .logo-name span {
     color: var(--dark);
 }
@@ -405,11 +412,6 @@ body {
     color: var(--success);
 }
 
-.content main .insights li:nth-child(4) .bx {
-    background: var(--light-danger);
-    color: var(--danger);
-}
-
 .content main .insights li .info h3 {
     font-size: 24px;
     font-weight: 600;
@@ -505,61 +507,47 @@ body {
     font-weight: 700;
 }
 
-.content main .bottom-data .orders table tr td .status.completed {
+.content main .bottom-data .orders table tr td .status.active {
     background: var(--success);
 }
 
-.content main .bottom-data .orders table tr td .status.process {
-    background: var(--primary);
-}
-
-.content main .bottom-data .orders table tr td .status.pending {
+.content main .bottom-data .orders table tr td .status.due {
     background: var(--warning);
 }
 
-.content main .bottom-data .reminders {
-    flex-grow: 1;
-    flex-basis: 300px;
-}
-
-.content main .bottom-data .reminders .task-list {
-    width: 100%;
-}
-
-.content main .bottom-data .reminders .task-list li {
-    width: 100%;
-    margin-bottom: 16px;
-    background: var(--grey);
-    padding: 14px 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.content main .bottom-data .reminders .task-list li .task-title {
-    display: flex;
-    align-items: center;
-}
-
-.content main .bottom-data .reminders .task-list li .task-title p {
-    margin-left: 6px;
-}
-
-.content main .bottom-data .reminders .task-list li .bx {
+.assign-btn,
+.delete-btn,
+.edit-btn,
+.checkout-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 2px;
     cursor: pointer;
 }
-
-.content main .bottom-data .reminders .task-list li.completed {
-    border-left: 10px solid var(--success);
+.assign-btn {
+    background: #2dce89;
+    color: #fff;
 }
-
-.content main .bottom-data .reminders .task-list li.not-completed {
-    border-left: 10px solid var(--danger);
+.delete-btn {
+    background: #f5365c;
+    color: #fff;
 }
-
-.content main .bottom-data .reminders .task-list li:last-child {
-    margin-bottom: 0;
+.edit-btn {
+    background: #5e72e4;
+    color: #fff;
+    text-decoration: none;
+}
+.checkout-btn {
+    background: #ffb800;
+    color: #fff;
+}
+.status-active {
+    background: #2dce89;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.95em;
 }
 
 @media screen and (max-width: 768px) {
